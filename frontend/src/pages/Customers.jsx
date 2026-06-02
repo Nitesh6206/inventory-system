@@ -30,6 +30,11 @@ export default function Customers() {
 
   // ── create customer ─────────────────────────────────────────────
   const handleSubmit = (e) => {
+
+    if (!form.name || !form.email) {
+      toast.error('Name and email are required');
+      return;
+    }
     e.preventDefault();
     setIsSaving(true);
 

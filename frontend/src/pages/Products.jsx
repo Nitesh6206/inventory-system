@@ -41,6 +41,11 @@ export default function Products() {
     e.preventDefault();
     setIsSaving(true);
 
+    if (!form.name || !form.price || !form.stock || !form.sku) {
+      toast.error('Name, price, stock and SKU are required');
+      return;
+    }
+
     const payload = {
       ...form,
       price: parseFloat(form.price),
