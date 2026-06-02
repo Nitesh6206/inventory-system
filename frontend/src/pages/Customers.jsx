@@ -41,7 +41,7 @@ export default function Customers() {
         setForm({ name: '', email: '', phone: '', address: '' });
         setShowForm(false);
       })
-      .catch(() => toast.error('Failed to create customer'))
+      .catch((err) => toast.error(err.response?.data?.detail || 'Failed to create customer'))
       .finally(() => setIsSaving(false));
   };
 

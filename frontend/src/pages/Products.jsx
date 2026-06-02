@@ -57,7 +57,7 @@ export default function Products() {
         fetchProducts();
         resetForm();
       })
-      .catch(() => toast.error('Something went wrong'))
+      .catch((err) => toast.error(err.response?.data?.detail || 'Failed to create product'))
       .finally(() => setIsSaving(false));
   };
 
